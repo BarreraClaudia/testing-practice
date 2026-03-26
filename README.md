@@ -1,56 +1,65 @@
-# Testing Practice
+# Jest Template
 
-Practicing test-driven development (TDD) using Jest in a vanilla JavaScript project.
+A minimal JavaScript project template pre-configured with Jest, Babel, ESLint, and Prettier — ready for test-driven development (TDD) out of the box.
 
-## Getting Started
+## Features
 
-1. Clone the repo and install dependencies:
+- **Jest** — test runner
+- **Babel** — ESM/CJS conversion so Jest works with modern `import`/`export` syntax
+- **ESLint** — linting with Jest globals pre-configured (no false `test`/`expect` errors)
+- **Prettier** — consistent code formatting
+
+## Using This Template
+
+Click **Use this template** at the top of the repo, then clone your new repo and install dependencies:
 
 ```bash
-   git clone https://github.com/BarreraClaudia/testing-practice
-   cd testing-practice
-   npm install
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME
+cd YOUR_REPO_NAME
+npm install
 ```
 
-2. Run the tests:
+## Running Tests
 
 ```bash
-   npm test
+npm test
 ```
 
 ## Project Structure
 
 ```
 src/
-├── analyzeArray.js
-├── caesarCipher.js
-├── calculator.js
-├── capitalize.js
-├── reverseString.js
+├── yourModule.js              # Your source files go here
 └── __tests__/
-    └── *.test.js
+    └── yourModule.test.js     # Your test files go here
 ```
 
-## Exercises
+## Writing Your First Test
 
-| File               | Description                                      |
-| ------------------ | ------------------------------------------------ |
-| `calculator.js`    | Basic arithmetic operations                      |
-| `caesarCipher.js`  | Encrypts a string using a character shift        |
-| `capitalize.js`    | Capitalizes the first letter of a string         |
-| `reverseString.js` | Reverses a given string                          |
-| `analyzeArray.js`  | Returns min, max, length and average of an array |
+1. Create a source file in `src/`:
 
-## Config Notes
+```js
+// src/add.js
+export const add = (a, b) => a + b;
+```
 
-- **Babel** (`babel.config.js`) — Jest lacks stable ESM support, so Babel handles ESM/CJS conversion
-- **ESLint** (`eslint.config.mjs`) — Jest globals like `test` and `expect` are explicitly configured to prevent linting errors.
-- **Prettier** (`.prettierrc`) — standard formatting setup
+2. Create a test file in `src/__tests__/`:
+
+```js
+// src/__tests__/add.test.js
+import { add } from '../add.js';
+
+test('adds two numbers', () => {
+  expect(add(2, 3)).toBe(5);
+});
+```
+
+3. Run `npm test` and watch it pass. ✅
 
 ## Tech Stack
 
-- JavaScript
-- Jest
-- Babel
-- ESLint
-- Prettier
+- JavaScript (ESM)
+- [Jest](https://jestjs.io/)
+- [Babel](https://babeljs.io/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
